@@ -31,19 +31,13 @@ function onSearch() {
             refs.countryInfo.innerHTML = '';
 
             if (response.length > 10) {
-                Notiflix.Notify.info(
-                    'Too many matches found. Please enter a more specific name.'
-                );
-            } else if (response.length < 10 && response.length >= 2) {
-                refs.countryList.insertAdjacentHTML(
-                    'beforeend',
-                    renderCountryList(response)
-                );
+                Notiflix.Notify.info('Too many matches found. Please enter a more specific name.');
+
+            } else if (response.length <= 10 && response.length >= 2) {
+                refs.countryList.insertAdjacentHTML('beforeend', renderCountryList(response));
+
             } else {
-                refs.countryInfo.insertAdjacentHTML(
-                    'beforeend',
-                    renderCountryInfo(response)
-                );
+                refs.countryInfo.insertAdjacentHTML('beforeend', renderCountryInfo(response));
             }
 
         })
@@ -52,10 +46,6 @@ function onSearch() {
             return [];
         })
 }
-
-
-
-
 
 
 
